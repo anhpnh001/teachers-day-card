@@ -15,7 +15,7 @@ $secondary-text: #757575;
 }
 
 html {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 
@@ -34,7 +34,8 @@ body {
 }
 
 .petal {
-    background-image: url('images/1.png');
+    user-select: none;
+    background-image: url('images/petal.png');
     background-repeat: repeat;
     background-size: 48em 27rem;
     width: 100%;
@@ -85,8 +86,8 @@ body {
 
 .gift {
     cursor: pointer;
-    width: 21rem;
-    height: 28rem;
+    width: 18rem;
+    height: 24rem;
     transform-style: preserve-3d;
     transform: translate(5%, 0);
     box-shadow: -2rem 2rem .5rem rgba(0, 0, 0, .5);
@@ -208,8 +209,8 @@ body {
     opacity: 0;
     z-index: -1;
     cursor: pointer;
-    width: 21rem;
-    height: 28rem;
+    width: 18rem;
+    height: 24rem;
     transform-style: preserve-3d;
     transition: .5s transform;
     perspective: 1500px;
@@ -249,7 +250,6 @@ body {
 }
 
 .page {
-    font-size: 2rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -288,12 +288,12 @@ body {
             >* {
                 opacity: 0;
                 transition: .2s;
-                font-size: 1.8rem;
-                line-height: 2.5rem;
+                font-size: 1.5rem;
+                line-height: 2.2rem;
                 user-select: none;
 
                 &:not(:last-child) {
-                    margin-bottom: 1.5rem;
+                    margin-bottom: .8rem;
                 }
             }
 
@@ -394,8 +394,8 @@ body {
     left: 50%;
     transform: translate(-50%, 0);
     background-color: #fff8b7;
-    width: 15rem;
-    height: 15rem;
+    width: 12rem;
+    height: 12rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -408,8 +408,8 @@ body {
     &__text {
         text-align: center;
         text-transform: uppercase;
-        font-size: 1.2rem;
-        line-height: 1.5rem;
+        font-size: 1.1rem;
+        line-height: 1.4rem;
         font-weight: 400;
     }
 
@@ -418,9 +418,9 @@ body {
         border-bottom: 1px solid $secondary-text;
         width: 100%;
         text-align: center;
-        height: 2rem;
-        font-size: 3rem;
-        line-height: 3rem;
+        height: 1.5rem;
+        font-size: 2rem;
+        line-height: 2rem;
         color: $secondary-text
     }
 
@@ -447,8 +447,8 @@ body {
 }
 
 .button {
-    width: 8rem;
-    height: 4rem;
+    width: 7rem;
+    height: 3.5rem;
     border-radius: 2rem;
     border: 0;
     outline: none;
@@ -463,12 +463,12 @@ body {
 
     &--confirm {
         z-index: 1;
-        border: .3rem solid #4CAF50;
+        border: .2rem solid #4CAF50;
 
 
         &:hover {
             background-color: #4CAF50;
-            border: .3rem solid #fff;
+            border: .2rem solid #fff;
             color: white;
         }
     }
@@ -717,9 +717,9 @@ footer {
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1680px) {
     html {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
