@@ -9,11 +9,14 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  font-size: 16px;
   font-weight: 300;
   font-family: "Rukola";
   background-image: url("images/background.jpg"), url("images/splash-1.jpg");
@@ -444,9 +447,14 @@ footer {
   right: 0;
   display: flex;
   justify-content: flex-end;
-  width: 100%;
   align-items: center;
   font-family: "Comfortaa", cursive;
+}
+footer div {
+  text-align: right;
+  line-height: 1.25;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 @keyframes falling {
@@ -603,5 +611,30 @@ footer {
   }
   100% {
     transform: rotate(-10deg) skewX(5deg);
+  }
+}
+@media (max-width: 1440px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1280px) {
+  body {
+    overflow: scroll;
+    height: auto;
+  }
+
+  .content {
+    padding: 4rem 0 8rem;
+    flex-direction: column;
+  }
+
+  .textBox {
+    margin-bottom: 4rem;
+  }
+}
+@media (max-width: 1024px) {
+  footer {
+    position: relative;
   }
 }
