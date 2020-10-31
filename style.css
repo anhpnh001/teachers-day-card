@@ -390,7 +390,7 @@ body {
 }
 
 .confirm-dialog {
-  margin-top: 5rem;
+  margin-top: 4rem;
   animation: loadDialog 0.5s 2s ease forwards;
   opacity: 0;
 }
@@ -614,12 +614,12 @@ footer div {
 }
 @media (max-width: 1680px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (max-width: 1280px) {
   body {
-    overflow: scroll;
+    overflow-y: scroll;
     height: auto;
   }
 

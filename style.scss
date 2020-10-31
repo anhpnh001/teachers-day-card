@@ -439,7 +439,7 @@ body {
 }
 
 .confirm-dialog {
-    margin-top: 5rem;
+    margin-top: 4rem;
     animation: loadDialog .5s 2s ease forwards;
     opacity: 0;
 }
@@ -510,6 +510,7 @@ footer {
     justify-content: flex-end;
     align-items: center;
     font-family: 'Comfortaa', cursive;
+
     div {
         text-align: right;
         line-height: 1.25;
@@ -717,26 +718,27 @@ footer {
 
 @media (max-width: 1680px) {
     html {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
-@media (max-width: 1280px ) {
+@media (max-width: 1280px) {
     body {
-        overflow: scroll;
+        overflow-y: scroll;
         height: auto;
     }
+
     .content {
         padding: 4rem 0 8rem;
         flex-direction: column;
     }
-    
+
     .textBox {
         margin-bottom: 4rem;
     }
 }
 
-@media (max-width: 1024px ) {
+@media (max-width: 1024px) {
     footer {
         position: relative;
     }
