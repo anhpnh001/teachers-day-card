@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Rukola";
   src: url("rukola.ttf");
+  font-display: swap;
 }
 * {
   margin: 0;
