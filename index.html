@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="style.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Teachers Day</title>
@@ -49,6 +51,12 @@
                             đang có mặt tại đây</p>
                     </section>
                     <section class="page__back">
+                        <figure class="polaroid">
+                            <img src="images/TDTU/library.jpg" alt="" class="polaroid__image">
+                        </figure>
+                        <figure class="polaroid">
+                            <img src="images/TDTU/creative-language-center.jpg" alt="" class="polaroid__image">
+                        </figure>
                     </section>
                 </article>
                 <article class="page">
@@ -58,6 +66,12 @@
                             của em</p>
                     </section>
                     <section class="page__back">
+                        <figure class="polaroid">
+                            <img src="images/TDTU/dormitory.jpg" alt="" class="polaroid__image">
+                        </figure>
+                        <figure class="polaroid">
+                            <img src="images/TDTU/bridge.jpg" alt="" class="polaroid__image">
+                        </figure>
                     </section>
                 </article>
                 <article class="page">
@@ -67,22 +81,76 @@
                         <p>Em mong rằng tấm thiệp này sẽ thay em bày tỏ phần nào sự biết ơn sâu sắc từ đáy lòng em gửi
                             đến Thầy Cô 💖</p>
                     </section>
-                    <section class="page__back">Page 4 back</section>
+                    <section class="page__back">
+                    </section>
                 </article>
             </section>
             <section class="confirm-dialog">
-                <button class="button button--confirm">Open 😁</button>
-                <button class="button button--cancel">Decline 😢</button>
+                <button class="button button--confirm">Open <i class="fas fa-check"></i></button>
+                <button class="button button--cancel">Decline <i class="fas fa-times"></i><span
+                        class="button__tooltip">Catch me</span></button>
             </section>
         </section>
     </main>
+    <section class="player">
+        <i class="fas fa-music"></i>
+        <section class="player__controls">
+            <i class="fas fa-pause player__toggle"></i>
+            <section class="player__process">
+                <span class="player__process--current"></span>
+            </section>
+        </section>
+    </section>
+    <section class="popup">
+        <section class="timeline">
+            <section class="timeline__item">
+                <img src="images/Asset 1.svg" alt="">
+                <i class="fas fa-check"></i>
+            </section>
+            <section class="timeline__item">
+                <img src="images/Asset 2.svg" alt="">
+                <i class="fas fa-check"></i>
+            </section>
+            <section class="timeline__item">
+                <img src="images/Asset 3.svg" alt="">
+                <i class="fas fa-check"></i>
+            </section>
+            <section class="timeline__item">
+                <img src="images/Asset 4.svg" alt="">
+                <i class="fas fa-check"></i>
+            </section>
+        </section>
+        <section class="slider">
+            <section class="slider__container">
+                <img src="images/Asset 1.svg" alt="" class="slider__item">
+                <img src="images/Asset 2.svg" alt="" class="slider__item">
+                <img src="images/Asset 3.svg" alt="" class="slider__item">
+                <img src="images/Asset 4.svg" alt="" class="slider__item">
+                <section class="slider__control">
+                    <i class="fas fa-angle-left slider__button slider__button--prev"></i>
+                    <i class="fas fa-angle-right slider__button slider__button--next"></i>
+                </section>
+            </section>
+            <section class="slider__text">
+                <span>Tri ân đến thầy cô trường</span>
+                <section class="text-list">
+                    <section class="text-list__container">
+                        <span>Tiểu học Kim Đồng</span>
+                        <span>THCS Hùng Vương</span>
+                        <span>THPT Dầu Giây</span>
+                        <span>ĐH Tôn Đức Thắng</span>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <span class="popup__close">Close</span>
+    </section>
     <footer>
         <div>
             <span id="icon-name" style="display: block;">Phan Ngọc Hoàng Anh</span>
             <span style="display: block;">520H0511</span>
         </div>
-        <img style="width: 120px;
-    height: auto;" src="images/iconLogo.png" alt="ICON">
+        <img style="height: 4rem;" src="images/iconLogo.png" alt="ICON">
     </footer>
     <script src="script.js" defer></script>
 </body>

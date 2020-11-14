@@ -1,25 +1,75 @@
-const pages = document.querySelectorAll('.page')
+const body = document.querySelector('body')
 const book = document.querySelector('.book')
 const giftBox = document.querySelector('.gift')
-const body = document.querySelector('body')
+const pages = document.querySelectorAll('.page')
+
 const confirmDialog = document.querySelector('.confirm-dialog')
 const confirmBtn = document.querySelector('.button--confirm')
 const cancelBtn = document.querySelector('.button--cancel')
+const tooltip = document.querySelector('.button__tooltip')
+
+const popup = document.querySelector('.popup')
+const closePopupBtn = document.querySelector('.popup__close')
+const slides = document.querySelectorAll('.slider__item')
+const prevSlideBtn = document.querySelector('.slider__button--prev')
+const nextSlideBtn = document.querySelector('.slider__button--next')
+const sliderListText = document.querySelector('.text-list__container')
+
+const toggleAudioBtn = document.querySelector('.player__toggle')
+const processCurrent = document.querySelector('.player__process--current')
 
 let zIndex = pages.length - 1
 let opening = false
 let showTextDone = true
+let slideIndex = 0
+let slideshow
+let firstHovered = false;
+
+let audio = new Audio('music.mp3')
+audio.play()
+
+toggleAudioBtn.addEventListener('click', () => {
+    if (!audio.paused) {
+        audio.pause()
+        toggleAudioBtn.classList.add('fa-play')
+        toggleAudioBtn.classList.remove('fa-pause')
+        audioPlaying = false
+    } else {
+        audio.play()
+        toggleAudioBtn.classList.add('fa-pause')
+        toggleAudioBtn.classList.remove('fa-play')
+        audioPlaying = true
+    }
+})
+
+audio.addEventListener('timeupdate', () => {
+    processCurrent.style.width = audio.currentTime / audio.duration * 100 + '%'
+})
+
+audio.addEventListener('ended', () => {
+    audio.currentTime = 0
+    audio.play()
+})
 
 confirmBtn.addEventListener('click', unbox)
 cancelBtn.addEventListener('click', handleCancelBtn)
 cancelBtn.addEventListener('mouseover', handleCancelBtn)
 
+nextSlideBtn.addEventListener('click', nextSlide);
+prevSlideBtn.addEventListener('click', prevSlide);
+
+closePopupBtn.addEventListener('click', () => {
+    popup.classList.remove('showPopup')
+    pages[pages.length - 1].classList.remove('tearThePage')
+})
+
 function handleCancelBtn() {
+    tooltip.style.opacity = 0;
     let rdBtn = Math.floor(Math.random() * 100)
     // Replace or Move
-    if (rdBtn > 50) return replaceBtn()
+    if (rdBtn > 50 && firstHovered === true) return replaceBtn()
+    firstHovered = true
     moveBtn()
-    console.log(rdBtn)
 }
 
 function replaceBtn() {
@@ -59,7 +109,7 @@ for (let numberOfPages = 0; numberOfPages < pages.length; numberOfPages++) {
     pageArrangement(pages[numberOfPages])
     pages[numberOfPages].addEventListener('click', function (e) {
         if (showTextDone) {
-            console.log(pages[numberOfPages])
+            // Open book
             opening = true
             if (numberOfPages === 0 && book.classList.contains('book--open')) opening = false
             if (opening) {
@@ -70,6 +120,17 @@ for (let numberOfPages = 0; numberOfPages < pages.length; numberOfPages++) {
                 book.classList.add('book--close')
             }
             if (numberOfPages !== pages.length - 1) turnThePages(pages[numberOfPages])
+            else {
+                // Show popup
+                pages[pages.length - 1].classList.add('tearThePage')
+                setTimeout(() => {
+                    popup.classList.add('showPopup')
+                    setTimeout(() => {
+                        slideshow = setInterval(nextSlide, 4000)
+                    }, 10000)
+                }, 4000);
+
+            }
             pages[numberOfPages].setAttribute('data-clicked', true)
         }
     })
@@ -84,7 +145,7 @@ async function showText(page) {
                 setTimeout(async () => {
                     await typingText(element)
                     resolve()
-                }, 200)
+                }, 100)
             })
         }
     }
@@ -95,13 +156,12 @@ async function showText(page) {
 async function typingText(element) {
     element.style.opacity = 1
     let elText = element.innerText
-    console.log(elText)
     element.innerText = ''
     for (let i = 0; i < elText.length; i++) {
         await new Promise(resolve => setTimeout(() => {
             element.innerHTML += elText.charAt(i)
             resolve()
-        }, 50))
+        }, 30))
 
     }
 }
@@ -121,4 +181,27 @@ async function turnThePages(page) {
 function pageArrangement(page) {
     page.style.zIndex = zIndex
     zIndex--
+}
+
+function hideAllSlide() {
+    for (const slide of slides) {
+        slide.style.opacity = 0
+    }
+}
+
+function nextSlide() {
+    hideAllSlide()
+    if (slideIndex === slides.length - 1) slideIndex = -1
+    slideIndex++
+    if (slideIndex === slides.length - 1) clearInterval(slideshow)
+    slides[slideIndex].style.opacity = 1
+    sliderListText.style.transform = `translate(0, -${3 * slideIndex}rem)`
+}
+
+function prevSlide() {
+    hideAllSlide()
+    if (slideIndex === 0) slideIndex = slides.length
+    slideIndex--
+    slides[slideIndex].style.opacity = 1
+    sliderListText.style.transform = `translate(0, -${3 * slideIndex}rem)`
 }
